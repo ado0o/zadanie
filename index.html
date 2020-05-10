@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-signin-client_id" content="1029678842004-cgp7r7hb11lbl8qm0t5cg7576944sea5.apps.googleusercontent.com">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+	<link rel="stylesheet" href="style.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    ...
+  </header>
+	
+	<main id="articles"></main>
+
+  <footer>
+    ...
+  </footer>
+	
+	<script id="main-page" type="text/template">
+		
+	</script>
+	<script id="template-articles" type="text/template">
+		<div id="blog-data" class="blog head-pd mr-sm-5 ml-sm-5 pb-5">
+        <div class="container blog-gutters">
+            <div class="text-center py-3">
+                <h1>Blog</h1>
+                <hr class="col-4">
+            </div>
+            {{#.}}
+            <div id="article1" class="col-12 d-xl-flex d-lg-flex d-md-flex d-sm-block mb-4">
+                <div id="article-img" class="col-12 col-xl-4 col-lg-4 col-md-4 px-0">
+                    <a data-toggle="tooltip" data-placement="top" title="Zmena paradigmy - bezdrôtové MTB s SRAM Eagle AXS" href="{{detailLink}}">
+                        <img  alt="img" class=" img-fluid" src="{{imageLink}}">
+                    </a>
+                </div>
+                <div class="col-12 col-xl-8 col-lg-8 col-md-8 borw pt-3">
+                    <a href="{{detailLink}}"><h5 class="card-title">{{title}}</h5></a>
+                    <p class="card-text d-lg-block d-md-none text-resp">{{{content}}}</p>
+                    <p class="marg">by {{author}}</p>
+                    <div class="position-absolute articles-btn d-md-block d-none d-none">
+                        <a class="blog-continue" href="{{detailLink}}">pokračovať v čítaní</a>
+
+                    </div>
+                </div>
+            </div>
+            {{/.}}
+            {{#prevPage}}
+        <a href="#main/{{prevPage}}/{{pageCount}}"><< Previous page</a>
+        {{/prevPage}}
+        {{#nextPage}}
+        <a href="#main/{{nextPage}}/{{pageCount}}">Next page >></a>
+        {{/nextPage}}
+
+<div id="pagination-container" class="col mt-3">
+    <nav class="d-sm-flex d-none justify-content-end">
+    	
+        <ul class="pagination">
+        	<li class="page-item"><a href="#addOpinion">Add your opinion</a></li>
+            <li class="page-item page-arrow">
+                <a class="page-link" aria-label="Previous">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item page-arrow mr-0">
+                <a class="page-link" aria-label="Next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="articles-btn d-sm-none justify-content-center d-flex">
+        <button class="btn btn-secondary">ZOBBRAZIŤ VIAC</button>
+
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+	</script>
+
+<script id="template-addOpinion" type="text/template">
+    
+</script>
+
+	<script id="template-article" type="text/template">
+    <article>
+    	<div class="blog-detail head-pd pb-5">
+	<div class="justify-content-center d-flex">
+		<div class="col-lg-10 p-0">
+			<img alt="img" class="card-img-top" src="{{imageLink}}">
+
+			<div class="position-relative blog-detail-fr px-sm-5 px-3">
+        <blockquote class="pt-3 pb-3">
+				<div class="text-center py-3">
+				<h4>{{title}}</h4>
+				<hr class="col-4 mx-auto">
+				<small>{{author}}</small>
+			</div>
+        {{#imageLink}}
+        <figure class=text-center>
+            <img src="{{imageLink}}" alt="article figure" class="img-fluid w-50" />
+        </figure>
+        {{/imageLink}}
+        <div>{{{content}}}</div>
+        <p>
+            Keywords:
+            {{tags}}
+        </p>
+
+
+    </blockquote>
+
+    <div class="">
+    <a class="backbtn" href="{{backLink}}" class="linkAsButton">Back</a>
+        <a class="backbtn" href="{{editLink}}" class="linkAsButton">Edit</a>
+        <a class="backbtn" href="{{deleteLink}}" class="linkAsButton">Delete</a>
+    </div>
+    </div>
+
+    	</div>
+    	</div>
+       </div> 
+    </article>
+</script>
+
+<script id="template-article-form" type="text/template">
+    <article>
+    	<div class="blog-detail head-pd-100 pb-5">
+	<div class="justify-content-center d-flex">
+		<div class="col-lg-10 p-0">
+
+			<div class="position-relative blog-detail-fr px-sm-5 px-3">
+
+				<blockquote class="pt-3 pb-3">
+				<div class="text-center py-3">
+				<h4>{{formTitle}}</h4>
+				<hr class="col-4 mx-auto">
+			</div>
+
+        <form id="articleForm" onsubmit="return {{formSubmitCall}}">
+        	<div class="mx-auto form-group col-12 col-md-8">
+            <label class="d-flex" for="author">Author:</label>
+            <input class="mb-2 form-control" type="text" name="author" id="author" value="{{author}}" size="75" title="Article author, max. length 100 characters." maxlength="100" placeholder="e.g. Ján Trieska" />
+            <label class="d-flex" for="title">Title:</label>
+            <input class="mb-2 form-control" type="text" name="title" id="title" value="{{title}}" size="75"  maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
+            <label class="d-flex" for="imageLink">Image (url):</label>
+            <input class="mb-2 form-control" type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="75" title="Image URL, max. length 100 characters." maxlength="100"/>
+        
+            <label></label><button class="mb-2 backbtn1" type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+            
+
+            <label class="d-flex" for="content">Article content:</label>
+            <textarea
+                    name="content" id="content" spellcheck="true" lang="sk" class="form-control"
+                    cols="75" rows="20" required
+                    title="Article content, mandatory item, can be plain text or in HTML.">{{content}}</textarea>
+            <br>
+            <label for="tags">Keywords:</label>
+            <input class="form-control"  type="text" name="tags" id="tags" value="{{tags}}" size="75"
+                    title="Keyword list, comma separated." placeholder="e.g. village, drama" />
+            <div class="mt-3 d-flex">   
+            <button class="backbtn1" type="reset">
+                Reset Form
+            </button>
+            <button class="backbtn1" type="submit">
+                {{submitBtTitle}}
+            </button>
+            	<a class="backbtn" href="{{backLink}}" class="linkAsButton">Back</a>
+            </div>
+            </div>
+        </form>
+    </blockquote>
+        </div>
+    	</div>
+    	</div>
+       </div>
+
+    </article>
+</script>
+<script id="template-article-new" type="text/template">
+    <article>
+    	<div class="blog-detail head-pd-100 pb-5">
+	<div class="justify-content-center d-flex">
+		<div class="col-lg-10 p-0">
+
+			<div class="position-relative blog-detail-fr px-sm-5 px-3">
+
+				<blockquote class="pt-3 pb-3">
+				<div class="text-center py-3">
+				<h4>{{formTitle}}</h4>
+				<hr class="col-4 mx-auto">
+			</div>
+
+        <form id="articleForm" onsubmit="return {{formSubmitCall}}">
+        	<div class="mx-auto form-group col-12 col-md-8">
+            <label class="d-flex" for="author">Author:</label>
+            <input class="mb-2 form-control" type="text" name="author" id="author" value="{{author}}" size="75" title="Article author, max. length 100 characters." maxlength="100" placeholder="e.g. Ján Trieska" />
+            <label class="d-flex" for="title">Title:</label>
+            <input class="mb-2 form-control" type="text" name="title" id="title" value="{{title}}" size="75"  maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
+            <label class="d-flex" for="imageLink">Image (url):</label>
+            <input class="mb-2 form-control" type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="75" title="Image URL, max. length 100 characters." maxlength="100"/>
+        
+            <label></label><button class="mb-2 backbtn1" type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+            
+
+            <label class="d-flex" for="content">Article content:</label>
+            <textarea
+                    name="content" id="content" spellcheck="true" lang="sk" class="form-control"
+                    cols="75" rows="20" required
+                    title="Article content, mandatory item, can be plain text or in HTML.">{{content}}</textarea>
+            <br>
+            <label for="tags">Keywords:</label>
+            <input class="form-control"  type="text" name="tags" id="tags" value="{{tags}}" size="75"
+                    title="Keyword list, comma separated." placeholder="e.g. village, drama" />
+            <div class="mt-3 d-flex">   
+            <button class="backbtn1" type="reset">
+                Reset Form
+            </button>
+            <button class="backbtn1" type="submit">
+                {{submitBtTitle}}
+            </button>
+            	<a class="backbtn" href="{{backLink}}" class="linkAsButton">Back</a>
+            </div>
+            </div>
+        </form>
+    </blockquote>
+        </div>
+    	</div>
+    	</div>
+       </div>
+
+    </article>
+</script>
+<script id="deleted-art" type="text/template">
+	<article>
+    	<div class="blog-detail head-pd-100 pb-5">
+	<div class="justify-content-center d-flex">
+		<div class="col-lg-10 p-0">
+
+			<div class="position-relative blog-detail-fr px-sm-5 px-3">
+
+				<blockquote class="pt-3 pb-3">
+				<div class="text-center py-3">
+				<h4>article deleted</h4>
+				<hr class="col-4 mx-auto">
+			</div>
+    </blockquote>
+        </div>
+    	</div>
+    	</div>
+       </div>
+
+    </article>
+</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
+crossorigin="anonymous">
+</script> 
+<script src="js/handleArticleForms.js"></script>
+<script src="js/addOpinion.js"></script>
+<script src="js/authacc.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="module" src="js/routerInit.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
